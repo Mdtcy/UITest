@@ -70,10 +70,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /.idea
-/Assets/RedBlueGames
-/Assets/RedBlueGames.meta
+/Assets/GUI Pro Kit Fantasy RPG
+/Assets/GUI Pro Kit Fantasy RPG.meta
 /Assets/Plugins/Easy Save 3/Resources/ES3/ES3Defaults.asset
 /[Pp]rojectSettings/ProjectVersion.txt
-/Assets/_Game/Textures/UI/bubble
 Assets/StreamingAssets/
 Assets/StreamingAssets.meta
