@@ -6,12 +6,16 @@
  * @desc []
  */
 
+using UnityEngine;
+using Zenject;
+
 namespace UI
 {
     public class ConfirmBoxController : Controller<ConfirmBoxView>
     {
         #region fields
 
+        [Inject]
         private OpenConfirmBoxSignal openSignal;
 
         #endregion
@@ -22,12 +26,41 @@ namespace UI
 
         public override void Initialise()
         {
-            throw new System.NotImplementedException();
+            View.Hide();
+
+            // bind
+            View.BtnConfirm.onClick.AddListener(OnConfirm);
+            View.BtnCancel.onClick.AddListener(OnCancel);
+
+            // signal
+            openSignal.AddListener(ShowConfirmBox);
         }
 
         public override void OnDestroy()
         {
-            throw new System.NotImplementedException();
+            openSignal.RemoveListener(ShowConfirmBox);
+        }
+
+        private void ShowConfirmBox()
+        {
+            View.Show();
+        }
+
+        private void HideConfirmBox()
+        {
+            View.Hide();
+        }
+
+        private void OnConfirm()
+        {
+            Debug.Log("OnConfirm");
+            View.TxtContent.text = "OnConfirm";
+        }
+
+        private void OnCancel()
+        {
+            HideConfirmBox();
+            Debug.Log("OnCancel");
         }
     }
 }

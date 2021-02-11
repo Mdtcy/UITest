@@ -6,6 +6,7 @@
  * @desc []
  */
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ namespace UI
         #region fields
 
         [SerializeField]
-        private Text txtContent;
+        private TextMeshProUGUI txtContent;
 
         [SerializeField]
         private Button btnConfirm;
@@ -28,7 +29,7 @@ namespace UI
 
         #region properties
 
-        public Text TxtContent => txtContent;
+        public TextMeshProUGUI TxtContent => txtContent;
 
         public Button BtnConfirm => btnConfirm;
 

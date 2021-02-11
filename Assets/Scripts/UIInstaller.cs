@@ -6,20 +6,33 @@
  * @desc []
  */
 
+using UI;
 using UnityEngine;
 using Zenject;
 
 namespace DefaultNamespace {
     public class UIInstaller : MonoInstaller
     {
+        [SerializeField]
+        private Setting m_setting;
+
         public override void InstallBindings()
         {
             BindUI();
+            BindSignal();
         }
 
         private void BindUI()
         {
+            Container.BindViewController<ConfirmBoxView, ConfirmBoxController>(m_setting.Views.ConfirmBoxView);
+        }
 
+        private void BindSignal()
+        {
+            Container.BindSignal<OpenConfirmBoxSignal>();
+
+            // test
+            Container.BindCommand<TestCommandSignal, TestCommand>();
         }
     }
 }
