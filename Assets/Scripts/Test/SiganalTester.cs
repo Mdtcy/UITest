@@ -10,16 +10,28 @@ public class SiganalTester : MonoBehaviour
     [Inject]
     private TestCommandSignal m_testCommandSignal;
 
+    [Inject]
+    private OpenTestTabViewSignal m_openTestTabViewSignal;
+
     [Button]
     public void TestOpenConfirmBoxSignal()
     {
+        Debug.Log("TestOpenConfirmBoxSignal");
         m_openConfirmBoxSignal.Fire();
     }
 
     [Button]
     public void TestCommandSignal()
     {
+        Debug.Log("TestCommandSignal");
         m_testCommandSignal.Fire();
+    }
+
+    [Button]
+    public void TestOpenTestTabViewSignal()
+    {
+        Debug.Log("TestOpenTestTabViewSignal");
+        m_openTestTabViewSignal.Fire();
     }
 }
 

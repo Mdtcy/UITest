@@ -25,6 +25,7 @@ namespace DefaultNamespace {
         private void BindUI()
         {
             Container.BindViewController<ConfirmBoxView, ConfirmBoxController>(m_setting.Views.ConfirmBoxView);
+            Container.BindViewController<TestTabView, TestTabViewController> (m_setting.Views.TestTabView);
         }
 
         private void BindSignal()
@@ -33,6 +34,7 @@ namespace DefaultNamespace {
 
             // test
             Container.BindCommand<TestCommandSignal, TestCommand>();
+            Container.BindSignal<OpenTestTabViewSignal>();
         }
     }
 }

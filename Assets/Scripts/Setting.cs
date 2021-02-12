@@ -19,12 +19,15 @@ public class Setting
         [SerializeField]
         private GameObject m_confirmBoxView = null;
 
+        [SerializeField]
+        private GameObject m_testTabView = null;
+
         #endregion
 
         #region Properties
 
         public GameObject ConfirmBoxView => m_confirmBoxView;
-
+        public GameObject TestTabView => m_testTabView;
         #endregion
     }
 }

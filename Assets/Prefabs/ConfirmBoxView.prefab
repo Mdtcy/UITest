@@ -534,8 +534,8 @@ MonoBehaviour:
   UpdateHideProgressorOnShow: 0
   UpdateShowProgressorOnHide: 0
   UseCustomStartAnchoredPosition: 1
-  ViewCategory: General
-  ViewName: Unnamed
+  ViewCategory: Custom
+  ViewName: ConfirmBoxView
 --- !u!222 &4397278904611564732
 CanvasRenderer:
   m_ObjectHideFlags: 0
