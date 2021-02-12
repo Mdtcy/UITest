@@ -1,19 +1,24 @@
-﻿using UnityEngine;
+﻿using Doozy.Engine.UI;
+using UnityEngine;
 
 public class View : MonoBehaviour
 {
-    protected virtual GameObject GameObject
-    {
-        get { return gameObject; }
-    }
-    
+    [SerializeField]
+    private UIView m_uiView;
+
+    protected virtual GameObject GameObject => gameObject;
+
+    protected UIView UIView => m_uiView;
+
     public virtual void Show()
     {
-        GameObject.SetActive(true);
+        m_uiView.Show();
+        // GameObject.SetActive(true);
     }
 
     public virtual void Hide()
     {
-        GameObject.SetActive(false);
+        m_uiView.Hide();
+        // GameObject.SetActive(false);
     }
 }
