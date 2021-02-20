@@ -1,5 +1,5 @@
 ﻿using Zenject;
 
-public class OpenConfirmBoxSignal : Signal { }
+public class OpenConfirmBoxSignal { }
 
-public class OpenTestTabViewSignal : Signal { }
+public class OpenTestTabViewSignal { }

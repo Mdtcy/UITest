@@ -16,6 +16,10 @@ namespace DefaultNamespace {
         [SerializeField]
         private Setting m_setting;
 
+        [SerializeField]
+        private Transform m_mainCanvas;
+
+
         public override void InstallBindings()
         {
             BindUI();
@@ -24,17 +28,22 @@ namespace DefaultNamespace {
 
         private void BindUI()
         {
-            Container.BindViewController<ConfirmBoxView, ConfirmBoxController>(m_setting.Views.ConfirmBoxView);
-            Container.BindViewController<TestTabView, TestTabViewController> (m_setting.Views.TestTabView);
+            Container.BindViewController<ConfirmBoxView, ConfirmBoxController>(m_setting.Views.ConfirmBoxView, m_mainCanvas);
+            Container.BindViewController<TestTabView, TestTabViewController> (m_setting.Views.TestTabView, m_mainCanvas);
         }
 
         private void BindSignal()
         {
-            Container.BindSignal<OpenConfirmBoxSignal>();
+            SignalBusInstaller.Install(Container);
 
-            // test
-            Container.BindCommand<TestCommandSignal, TestCommand>();
-            Container.BindSignal<OpenTestTabViewSignal>();
+            Container.DeclareSignal<OpenConfirmBoxSignal>();
+            Container.DeclareSignal<OpenTestTabViewSignal>();
+
+            // Container.BindSignal<OpenConfirmBoxSignal>();
+            //
+            // // test
+            // Container.BindCommand<TestCommandSignal, TestCommand>();
+            // Container.BindSignal<OpenTestTabViewSignal>();
         }
     }
 }

@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Doozy.Engine.UI;
-using UnityEngine;
+﻿using Doozy.Engine.UI;
 using Zenject;
 
 public class TestTabViewController : Controller<TestTabView>
 {
     [Inject]
-    private OpenTestTabViewSignal m_openTestTabViewSignal;
+    readonly SignalBus _signalBus;
+
     public override void Initialise()
     {
         View.Hide();
 
-        m_openTestTabViewSignal.AddListener(ShowTestTabView);
+        _signalBus.Subscribe<OpenTestTabViewSignal>(ShowTestTabView);
 
         View.AToggle.OnValueChanged.AddListener((value) => { OnToggleValueChanged(value, View.AView); });
         View.BToggle.OnValueChanged.AddListener((value) => { OnToggleValueChanged(value, View.BView); });
@@ -23,11 +21,12 @@ public class TestTabViewController : Controller<TestTabView>
 
     public override void OnDestroy()
     {
-        m_openTestTabViewSignal.RemoveListener(ShowTestTabView);
+        _signalBus.Unsubscribe<OpenTestTabViewSignal>(ShowTestTabView);
     }
 
     private void ShowTestTabView()
     {
+        View.transform.SetAsLastSibling();
         View.Show();
     }
 

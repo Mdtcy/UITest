@@ -443,13 +443,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 673016408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -795705440, guid: be85eb2938e79c74c8f087f5bd6979a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnlyInjectWhenActive: 0
-  InjectFullScene: 1
-  Installers:
+  _scriptableObjectInstallers: []
+  _monoInstallers:
   - {fileID: 673016415}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
 --- !u!114 &673016415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,3 +484,4 @@ MonoBehaviour:
         type: 3}
       m_testTabView: {fileID: 5378560792303732984, guid: c5a7aeb1df639e8489aff403fe3201c3,
         type: 3}
+  m_mainCanvas: {fileID: 673016413}

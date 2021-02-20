@@ -16,7 +16,7 @@ namespace UI
         #region fields
 
         [Inject]
-        private OpenConfirmBoxSignal openSignal;
+        readonly SignalBus _signalBus;
 
         #endregion
 
@@ -33,16 +33,18 @@ namespace UI
             View.BtnCancel.onClick.AddListener(OnCancel);
 
             // signal
-            openSignal.AddListener(ShowConfirmBox);
+            _signalBus.Subscribe<OpenConfirmBoxSignal>(ShowConfirmBox);
         }
 
         public override void OnDestroy()
         {
-            openSignal.RemoveListener(ShowConfirmBox);
+            _signalBus.Unsubscribe<OpenConfirmBoxSignal>(ShowConfirmBox);
+
         }
 
         private void ShowConfirmBox()
         {
+            View.transform.SetAsLastSibling();
             View.Show();
         }
 
